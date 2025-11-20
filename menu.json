@@ -2,5 +2,7 @@
   { "nombre": "Resumenes", "url": "index.html" },
   { "nombre": "XML", "url": "xml.html" },
   { "nombre": "JSON", "url": "json.html" },
-  { "nombre": "AJAX", "url": "ajax.html" }
+  { "nombre": "AJAX", "url": "ajax.html" },
+  { "nombre": "Modelo MVC", "url": "ModeloMVC.html" }
 ]
+
