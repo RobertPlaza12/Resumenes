@@ -10,36 +10,52 @@
     <section id="bienvenida" style="background-color:#fff; max-width:900px; margin:30px auto; padding:25px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
 
         <p style="font-size:18px; color:#555; line-height:1.6;">
-            Sus siglas son de Extensible Markup Language y es un lenguaje de marcado diseñado para almacenar, estructurar y transportar datos, 
-            a diferencia de HTMLa que describe cómo se muestra la información, este describe la información en sí misma.
-            Aunque hoy en día JSON es más común, XML sigue siendo esencial en muchas áreas del desarrollo web.
+            Sus siglas son de Modelo, Vista y Controlador, y es un patrón de arquitectura que divide una aplicación en 3 capas principales,
+            su objetivo es organizar el código, separar responsabilidades y hacer que la aplicación sea más escalable, mantenible y fácil de probar,
+            este se usa en muchos frameworks modernos como lo pueden ser, Laravel, ASP.NET MVC, Ruby on Rails, Django, Spring MVC, Angular, React, entre otros.<br>
         </p>
-        <h2>Este sirve hoy en día para:</h2>
+        
+        <h3>Capas del modelo mvc</h3>
         <ul>
-            <li>Intercambio de datos entre sistemas</li>
-            <li>Configuración de aplicaciones web</li>
-            <li>Almacenamiento de datos estructurado</li>
-            <li>Validación de datos con esquemas</li>
-            <li>Transformaciones con XSLT</li>
-            <li>APIs y Web Services (especialmente SOAP)</li>
+            <li>Modelo: Representa los datos y la lógica de negocio, Ejemplo: Clase Usuario que guarda, busca o valida usuarios.</li>
+            <li>Vista: Es la capa que muestra la información al usuario, Ejemplo: Página usuario.blade.php que muestra la lista de usuarios.</li>
+            <li>Controlador: Actúa como intermediario entre Modelo y Vista, Ejemplo: UsuarioController que responde a la ruta /usuarios.</li>
+        </ul>
+        <h3>Este nos a ayuda mucho a:</h3>
+        <ul>
+            <li>Mantener el código organizado</li>
+            <li>Facilita el trabajo en equipo</li>
+            <li>Permite reutilizar componentes</li>
+            <li>Facilita las pruebas y el mantenimiento</li>
+            <li>Escala mejor para proyectos grandes</li>
         </ul>
 
-        <h2>Ejemplos de uso:</h2>
+        <h3>Ejemplos de uso:</h3>
         
         <p style="font-size:18px; color:#555; line-height:1.6;">
-            
-        &lt;catalogo&gt;<br>
-            &lt;   producto id="001"&gt;<br>
-                &lt;   nombre&gt;Laptop HP&lt;/nombre&gt;<br>
-                &lt;   precio&gt;600&lt;/precio&gt;<br>
-                &lt;   stock&gt;15&lt;/stock&gt;<br>
-            &lt;   /producto&gt;<br>
-            &lt;   producto id="002"&gt;<br>
-                &lt;   nombre&gt;Mouse Logitech&lt;/nombre&gt;<br>
-                &lt;   precio&gt;20&lt;/precio&gt;<br>
-                &lt;   stock&gt;50&lt;/stock&gt;<br>
-            &lt;   /producto&gt;<br>
-        &lt;/catalogo&gt;
+        Modelo:<br>
+        &lt;?php
+        class Producto extends Model {
+            protected $table = "productos";
+        }
+        ?&gt;
+        <br>Vista:<br>
+        &lt;?php
+        class ProductoController extends Controller {
+            public function index() {
+                $productos = Producto::all();
+                return view("productos.index", compact("productos"));
+            }
+        }
+        ?&gt;
+        <br>Controlador:<br>
+        &lt;h1&gt;Lista de productos&lt;/h1&gt;
+
+        &lt;ul&gt;
+        @foreach($productos as $p)
+            &lt;li&gt;{{ $p-&gt;nombre }} - {{ $p-&gt;precio }}&lt;/li&gt;
+        @endforeach
+        &lt;/ul&gt;
         </p>
 
     </section>
@@ -56,6 +72,7 @@
 </body>
 
 </html>
+
 
 
 
