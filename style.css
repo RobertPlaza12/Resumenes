@@ -1,7 +1,7 @@
         body {
             font-family: 'Arial', sans-serif;
             margin: 20px;
-            background: #f5f5f5;
+            background: #f5f5f5 url(https://img.freepik.com/vector-premium/telon-fondo-telon-rojo_78474-383.jpg) center/cover no-repeat fixed;
             color: #333;
         }
 
@@ -142,3 +142,4 @@
         a:hover {
             text-decoration: underline;
         }
+
